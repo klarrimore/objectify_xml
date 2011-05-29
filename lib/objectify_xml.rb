@@ -1,6 +1,10 @@
 gem 'activesupport'
 require 'active_support'
-require 'active_support/inflections'
+if ActiveSupport::VERSION::MAJOR >= 3
+  require 'active_support/inflector'
+else
+  require 'active_support/inflections'
+end
 require 'nokogiri'
 require File.join(File.dirname(__FILE__), 'objectify_xml/dsl')
 require File.join(File.dirname(__FILE__), 'objectify_xml/document_parser')
